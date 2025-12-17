@@ -1,4 +1,5 @@
 # Reposync-ng
+The ultimate successor to RepoSync scripts, including RepoSync4.sh
 <h4> A Complex wrapper for reposync with many features </h4>
 <hr>
 
@@ -24,10 +25,11 @@
       <b>Proposed Features</b>
     </summary>
       <ul>
-        <li> :ballot_box_with_check: [PLANNED] Core functionality is contained within functions. :ballot_box_with_check: </li>
-        <li> :ballot_box_with_check: [PLANNED] ColorEcho-like output. :ballot_box_with_check: </li>
+        <li> :ballot_box_with_check: [DONE] Core functionality is contained within functions. :ballot_box_with_check: </li>
+        <li> :ballot_box_with_check: [MOSTLY WORKING] ColorEcho-like output. :ballot_box_with_check: </li>
         <li> :ballot_box_with_check: [PLANNED] Support for customizable profiles. </li>
-        <li> :ballot_box_with_check: [PLANNED] INI-based configuration with an INI library (3rd party, also open source) and viewer (ViewINI.sh). :ballot_box_with_check:  </li> 
+        <li> :ballot_box_with_check: [READY FOR TESTING] Support for excludes from external files. </li>
+        <li> :ballot_box_with_check: [IN PROGRESS] INI-based configuration with an INI library (3rd party, also open source) and viewer (ViewINI.sh). :ballot_box_with_check:  </li> 
         <li> :ballot_box_with_check: [PLANNED] RPM/DEB packaging for various platforms (Fedora/CentOS/Debian/Ubuntu/Raspberry Pi, etc.) :ballot_box_with_check: </li> 
       </ul>
 </details>
