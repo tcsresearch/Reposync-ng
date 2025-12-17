@@ -1,0 +1,27 @@
+# File Filtering Feature #
+  FILE_PATH="excludes.list"
+  FILTERED_FILE="excludes-filtered.list"
+
+
+
+
+function FilterExcludesFile() {
+# File Filtering Feature #
+        FILE_PATH="excludes.list"
+        FILTERED_FILE="excludes-filtered.list"
+
+        # Filter contents of $FILE_PATH into $FILTERED_FILE
+        echo "Filtering contents of excludes file $FILE_PATH..."
+        # cat $FILE_PATH | grep -Ev '^[[:blank:]]*#|^[[:blank:]]*$' filename.txt
+        grep -Ev '^[[:blank:]]*#|^[[:blank:]]*$' $FILE_PATH > $FILTERED_FILE
+
+
+        # Modern Bash method using input redirection (recommended)
+        echo "Saving Filtered Contents Of File $FILTERED_FILE to excludes variable..."
+        # FILE_CONTENT=$(<"$FILE_PATH")
+        FILE_CONTENT=$(<"$FILTERED_FILE")
+        
+        # Modern Bash method using input redirection (recommended)
+        excludes=$(<"FILTERED_FILE")
+}
+

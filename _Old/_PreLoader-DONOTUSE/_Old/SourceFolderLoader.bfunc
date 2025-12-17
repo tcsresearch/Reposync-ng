@@ -1,0 +1,29 @@
+
+function SourceFolderLoader() {
+	if [ -z "$1" ]; then
+	    echo "Error: No source folder specified for sourcing."
+    	    exit 1 # Exit with a non-zero status to indicate an error
+	fi
+
+	
+
+	# Define the directory containing the scripts
+	# SOURCE_DIR="./my_scripts_folder" 
+	# SOURCE_DIR="/etc/bashrc.d/PS1ConfigTool/functions"
+
+	## Set $1 to match $SOURCE_DIR.
+	SOURCE_DIR="$1"
+	# Echo $SOURCE_DIR.
+	echo "Source Folder: $SOURCE_DIR"
+	# Loop through all files in the specified directory
+	for file in "$SOURCE_DIR"/*; do
+	  # Check if the file is a regular file and not a directory
+	  if [ -f "$file" ]; then
+	    echo "Sourcing File: $file
+	    # Source the file
+	    source "$file"
+	    echo "File Sourced: $file"
+	  fi
+	done
+}
+

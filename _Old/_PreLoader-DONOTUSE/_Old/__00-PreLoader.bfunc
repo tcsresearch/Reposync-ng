@@ -1,0 +1,6 @@
+function PreLoader() {
+	ConfigFolderLoader
+	FunctionsFolderLoader
+	ProfileFolderLoader
+}
+

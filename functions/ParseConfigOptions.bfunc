@@ -1,0 +1,146 @@
+####################################################################################################################################
+# Parse Config Options #                                                                                                           #
+####################################################################################################################################
+
+#--------------------------------------------------------------#
+# Program Options Parsers                                      #
+# -------------------------------------------------------------#
+
+function ParseConfigOpts_LegacyRepoSyncEnabled() {
+# TODO: Allow for capitalized variants of these.
+
+        case "$Legacy_RepoSync_Enabled" in
+           y|yes|true|enabled|on|1)
+                echo "Legacy RepoSync is ENABLED."
+                prog=reposync"
+                ;;
+           n|no|false|disabled|off|0)
+                echo "Legacy RepoSync is DISABLED."
+                prog=dnf reposync"
+
+                ;;
+           *) # Default Case
+                echo "ERROR: Variable $Legacy_RepoSync_Enabled is either unset, or is configured incorrectly."
+                echo "       Variable $Legacy_RepoSync_Enabled *must* be set to one of these: 'y|yes|true|enabled|on|1' or 'n|no|false|disabled|off|0' "
+                echo " "
+                ;;
+        esac
+}
+
+
+function ParseConfigOpts_CleanMetaData() {
+# TODO: Allow for capitalized variants of these.
+
+        case "$Cfg_CLEAN_METADATA" in
+           y|yes|true|enabled|on|1)
+                echo "Metadata Cleaning is ENABLED."
+                CleanMetaData
+                ;;
+           n|no|false|disabled|off|0)
+                echo "Metadata Cleaning is DISABLED."
+                ;;
+           *) # Default Case
+                echo "ERROR: Variable $Cfg_CLEAN_METADATA is either unset, or is configured incorrectly."
+                echo "       Variable $Cfg_CLEAN_METADATA *must* be set to one of these: 'y|yes|true|enabled|on|1' or 'n|no|false|disabled|off|0' "
+                echo " "
+                ;;
+        esac
+}
+
+
+################################################################################################################
+
+#--------------------------------------------------------------#
+# Reposync Options Parsers                                     #
+# -------------------------------------------------------------#
+
+
+
+function ParseConfigOpts_DebugEnabled() {
+# TODO: Allow for capitalized variants of these.
+
+        case "$Cfg_DEBUG_ENABLED" in
+           y|yes|true|enabled|on|1)
+                echo "Debugging is ENABLED."
+                debug=" --debug"
+                ;;
+           n|no|false|disabled|off|0)
+                echo "Debugging is DISABLED."
+                debug=""
+
+                ;;
+           *) # Default Case
+                echo "ERROR: Variable $Cfg_DEBUG_ENABLED is either unset, or is configured incorrectly."
+                echo "       Variable $Cfg_DEBUG_ENABLED *must* be set to one of these: 'y|yes|true|enabled|on|1' or 'n|no|false|disabled|off|0' "
+                echo " "
+                ;;
+        esac
+}
+
+
+function ParseConfigOpts_DeleteEnabled() {
+# TODO: Allow for capitalized variants of these.
+
+        case "$Cfg_DELETE_ENABLED" in
+           y|yes|true|enabled|on|1)
+                echo "Deletion is ENABLED."
+                delete=" --delete"
+                ;;
+           n|no|false|disabled|off|0)
+                echo "Deletion is DISABLED."
+                delete=""
+
+                ;;
+           *) # Default Case
+                echo "ERROR: Variable $Cfg_DELETE_ENABLED is either unset, or is configured incorrectly."
+                echo "       Variable $Cfg_DELETE_ENABLED *must* be set to one of these: 'y|yes|true|enabled|on|1' or 'n|no|false|disabled|off|0' "
+                echo " "
+                ;;
+        esac
+}
+
+
+
+function ParseConfigOpts_Download_MetaData() {
+# TODO: Allow for capitalized variants of these.
+
+        case "$Cfg_DOWNLOAD_METADATA" in
+           y|yes|true|enabled|on|1)
+                echo "Metadata Downloading is ENABLED."
+                downloadmetadata=" -m"
+                ;;
+           n|no|false|disabled|off|0)
+                echo "Metadata Downloading is DISABLED."
+                downloadmetadata=" "
+                ;;
+           *) # Default Case
+                echo "ERROR: Variable $Cfg_DOWNLOAD_METADATA is either unset, or is configured incorrectly."
+                echo "       Variable $Cfg_DOWNLOAD_METADATA *must* be set to one of these: 'y|yes|true|enabled|on|1' or 'n|no|false|disabled|off|0' "
+                echo " "
+                ;;
+        esac
+}
+
+
+#===================================================================================================================================#
+# MASTER CONTROL FUNCTION (MCF) SEPARATOR                                                                                           #
+#===================================================================================================================================#
+
+#---------------------------------------------------------------------------------------------------------------#
+##### IMPORTANT #####                                                                                           #
+# This MUST be the last function in this section, as it requires the preceding functions to be defined first.   #
+#---------------------------------------------------------------------------------------------------------------#
+
+
+function Perform_ConfigOptsParse() {
+# Parse all configuration options easily with this function.
+# TODO: Determine which order they should run in.
+
+        ParseConfigOpts_LegacyRepoSyncEnabled
+        ParseConfigOpts_DebugEnabled
+        ParseConfigOpts_DeleteEnabled
+        ParseConfigOpts_CleanMetaData
+        ParseConfigOpts_Download_MetaData
+}
+
+##### MCF: END OF LINE #####

@@ -1,0 +1,23 @@
+#####################################################################################################################################
+# Filter Excludes #                                                                                                                 #
+#####################################################################################################################################
+
+function FilterExcludesFile() {
+# File Filtering Feature #
+# TODO: Figure out how we want to handle situations where $FilteredExcludesFile already exists.
+
+        # Filter contents of $Excludes_File into $FilteredExcludes_FileName
+        echo "Filtering contents of excludes file $Excludes_FileName..."
+        # cat $Excludes_FileName | grep -Ev '^[[:blank:]]*#|^[[:blank:]]*$' filename.txt
+        grep -Ev '^[[:blank:]]*#|^[[:blank:]]*$' $Excludes_FileName > $FilteredExcludes_FileName
+
+
+        # Modern Bash method using input redirection (recommended)
+        echo "Saving Filtered Contents Of File $FilteredExcludes_FileName to excludes variable..."
+        # FILE_CONTENT=$(<"$FILE_PATH")
+        Excludes_FileName=$(<"$FilteredExcludes_FileName")
+
+        # Modern Bash method using input redirection (recommended)
+        Repo_Excludes=$(<"FilteredExcludes_FileName")
+}
+

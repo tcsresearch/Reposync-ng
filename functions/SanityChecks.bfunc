@@ -1,0 +1,69 @@
+####################################################################################################################################
+# Sanity Checks #                                                                                                                  #
+####################################################################################################################################
+
+# ------------------------------------------------------------- #
+# Ensure That Our Excludes Files Exist                          #
+# ------------------------------------------------------------- #
+
+
+function SanityCheck_DoesExcludeFileExist() {
+        if [ ! -f $$Excludes_FilePath/$Excludes_FileName ]; then
+                echo "ERROR! Excludes File $Excludes_FilePath/$Excludes_FileName does not exist!"
+                exit 1
+        fi
+}
+
+function SanityCheck_DoesFilteredExcludeFileExist() {
+        if [ ! -f $$Excludes_FilePath/$FilteredExcludes_FileName ]; then
+                echo "ERROR! Excludes File $Excludes_FilePath/$FilteredExcludes_FileName does not exist!"
+                exit 1
+        fi
+}
+
+# ------------------------------------------------------------- #
+# Check Variables To Ensure They Are NOT Empty                  #
+# ------------------------------------------------------------- #
+
+function SanityCheck_IsExcludesNotEmpty() {
+        if [ -z "$Repo_Excludes" ]; then
+           echo "Error: Excludes Variable '$Repo_Excludes' is empty. Script terminated."
+           exit 1
+        fi
+}
+
+function SanityCheck_IsRepoIDNotEmpty(){
+# Check if RepoID was set
+        if [[ -z "$RepoID" ]]; then
+           DisplayBanner
+           echo "Error: RepoID not provided."
+           exit 1
+        fi
+}
+
+#===================================================================================================================================#
+# MASTER CONTROL FUNCTION (MCF) SEPARATOR                                                                                           #
+#===================================================================================================================================#
+
+#---------------------------------------------------------------------------------------------------------------#
+##### IMPORTANT #####                                                                                           #
+# This MUST be the last function in this section, as it requires the preceding functions to be defined first.   #
+#---------------------------------------------------------------------------------------------------------------#
+
+function Perform_SanityChecks() {
+#--------------------------------------------------#
+# Run all sanity checks easily with this function. #
+# TODO: Determine which order they should run in.  #
+# -------------------------------------------------#
+
+        # Check Variables #
+          SanityCheck_IsExcludesNotEmpty
+          SanityCheck_IsRepoIDNotEmpty
+
+        # Check Files #
+          SanityCheck_DoesExcludesFileExist
+          SanityCheck_DoesFilteredExcludesFileExist
+}
+
+
+##### MCF: END OF LINE #####

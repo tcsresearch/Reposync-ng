@@ -1,0 +1,43 @@
+####################################################################################################################################
+# CASE Statement - Check Commandline Arguments #                                                                                   #
+####################################################################################################################################
+function ShowCase(){
+# Loop through command-line arguments
+        while [[ "$#" -gt 0 ]]; do
+                # Use a case statement to check the argument
+                case "$1" in
+                --repoid=*)
+                # Pattern match to extract the value after "--repoid="
+                RepoID="${1#--repoid=}"
+                echo "RepoID set to: $RepoID"
+
+                shift # Shift one argument as the value is part of $1
+                ;;
+                --show-config)
+                ShowConfig
+                ;;
+                --show-excludes)
+                ShowExcludes
+                ;;
+                --debug)
+                # TODO: Confirm this can't be overriden by config option.
+                Cfg_DEBUG_ENABLED="1"
+                ;;
+                --legacy)
+                # TODO: Confirm this can't be overriden by config option.
+                Legacy_Reposync_Enabled="1"
+                ;;
+                --help)
+                DisplayBanner
+                echo "Usage: $0 [--show-config | --show-excludes] [--repoid=< name of repo to sync >]"
+                exit 1
+                ;;
+                *)
+                # Handle other arguments or unknown options
+                echo "Unknown argument: $1"
+                shift
+                ;;
+                esac
+        done # Closes while loop
+}
+

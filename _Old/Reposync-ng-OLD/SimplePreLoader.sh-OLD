@@ -1,0 +1,18 @@
+# Source *.conf files under config/
+echo "Loading Configuration Files..."
+for file in config/*.conf; do
+    [ -f "$file" ] && source "$file"
+done
+
+# Source *.bfunc files under functions/
+echo "Loading Functions..."
+for file in functions/*.bfunc; do
+    [ -f "$file" ] && source "$file"
+done
+
+# Source *.bprofile files under profiles/
+echo "Loading Profiles..."
+for file in profiles/*.bprofile; do
+    [ -f "$file" ] && source "$file"
+done
+

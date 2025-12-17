@@ -1,0 +1,42 @@
+####################################################################################################################################
+# Show Excludes #                                                                                                                  #
+####################################################################################################################################
+
+function ShowExcludes() {
+        echo "Displaying Excludes Entries Below..."
+        echo " "
+        echo "$Repo_Excludes"
+        exit 2 # Prevent endless loop   
+}
+
+####################################################################################################################################
+# Show Current Config #                                                                                                            #
+####################################################################################################################################
+
+function ShowConfig() {
+        echo "Displaying Current Configuration..."
+        echo " "
+        echo "###################################################################"
+        echo "# Excludes Files Info #                                           #"
+        echo "###################################################################"
+        CfgDisplay      "  Excludes File Path:          $Excludes_FilePath"
+        CfgDisplay      "  Excludes Filename:           $Excludes_FileName"
+        CfgDisplay      "  Filtered Excludes:           $FilteredExcludes_FileName"
+        CfgDisplay      "  Excludes File Date:          `date -r $Excludes_FilePath/$Excludes_FileName`"
+        echo " "
+        echo "###################################################################"
+        echo "# Configured Options #                                            #"
+        echo "###################################################################"
+        ### TODO: Enable ColorEcho and have green for enabled and red for disabled.
+        ###           Must add code in the section where config options are parsed.
+        CfgDisplay "  Keep Newest Only:                 $Cfg_KEEP_NEWEST_ONLY"
+        CfgDisplay "  Download Metadata:                $Cfg_DOWNLOAD_METADATA"
+        CfgDisplay "  Delete Old Packages:              $Cfg_DELETE_ENABLED"
+        CfgDisplay "  Debugging Enabled:                $Cfg_DEBUG_ENABLED"
+        CfgDisplay "  Clean Metadata:                   $Cfg_CLEAN_METADATA"
+        CfgDisplay "  Remove Filtered Excludes:         $Cfg_REMOVE_FILTERED_FILE"
+        echo " "
+        exit 3 # Prevent endless loop
+}
+
+

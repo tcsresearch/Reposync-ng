@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Define the directories to source from, relative to your home directory or current location
+DIRS=("config" "functions" "profiles")
+
+# Loop through each directory
+for dir in "${DIRS[@]}"; do
+    # Check if the directory exists, is readable, and is executable
+    if [[ -d "$dir" && -r "$dir" && -x "$dir" ]]; then
+        # Loop through all files in the directory and source them
+        for file in "$dir"/*; do
+            # Check if the file is a regular file and is readable
+            if [[ -f "$file" && -r "$file" ]]; then
+                echo "Sourcing $file..."
+                source "$file"
+            fi
+        done
+    else
+        echo "Directory not found or not accessible: $dir"
+    fi
+done
+

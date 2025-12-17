@@ -1,0 +1,147 @@
+# This excludes.list file will allow certain packages specified here to be excluded from syncing.
+# The ability to use this feature has been included in Update.sh.
+
+# Debug Packages #
+*-debuginfo-*
+*-debug-*
+*-fastdebug-*
+*-slowdebug-*
+kernel-debug-*
+
+# Headless
+*-headless-*
+
+# Language Packs #
+*-langpack-*
+
+# LibreOffice Help #
+libreoffice-help-*
+
+####################################################################################################################
+# MinGW32 / MinGW64 #                                                                                              #
+####################################################################################################################
+
+mingw32-*
+mingw64-*
+
+####################################################################################################################
+# GAMES #													   #
+####################################################################################################################
+
+0ad-*
+alienarena-data
+endless-sky-*
+FlightGear-*
+edgar-*
+extremetuxracer
+freedoidrpg-*
+
+####################################################################################################################
+# FEDORA BACKGROUNDS #                                                                                                          #
+####################################################################################################################
+
+f*-backgrounds-*
+
+####################################################################################################################
+# APPS #                                                                                                          #
+####################################################################################################################
+
+# R #
+R-*
+
+# Adobe #
+adobe-*
+adobe-source-*
+
+# Aspell #
+aspell-*
+
+# Agda #
+Agda-*
+
+# Asterisk #
+asterisk-*
+
+# Astrometry #
+astrometry-*
+
+# Avogadro2 #
+avogadro2-*
+
+# Collada #
+collada-*
+
+# Emboss #
+EMBOSS-*
+
+# Enguage Digitizer #
+engauge-digitizer-*
+
+# Enlightenment (Desktop Window Manager)
+enlightenment-*
+
+# Frama-c (Source Code Analzyer for C)
+frama-c-*
+
+# Faust (Audio Programming Language #
+faust-*
+
+####################################################################################################################
+# SOURCE CODE #                                                                                                          #
+####################################################################################################################
+
+*-source-*
+*-src-*
+
+####################################################################################################################
+# JAVA #                                                                                                          #
+####################################################################################################################
+
+java-*
+# java-11-*
+# java-17-*
+# java-21-*
+# java-1.8.0-*
+# java-*-openjdk-*
+# *-javadoc-*
+# *-fastdebug-*
+# *-slowdebug-*
+
+####################################################################################################################
+# OTHER #                                                                                                          #
+####################################################################################################################
+
+boost-*
+btbuilder-data
+buildah-*
+bullet-devel-doc
+butane-redistributable
+
+calceph-*
+ceph-*
+clamav-*
+clang-*
+claws-*
+cura-*
+
+dolphin-*
+dotnet-*
+dmlite-*
+
+
+emacs-*
+
+glibc-langpack-*
+ghc-*
+golang-*
+
+mesa-*
+
+root-*
+
+rust-*
+
+wine-*
+
+xen-*
+

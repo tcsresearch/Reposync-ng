@@ -1,0 +1,28 @@
+####################################################################################################################################
+# Functions #                                                                                                                      #
+####################################################################################################################################
+
+function DisplayBanner() {
+        echo "RepoSync Utility."
+        # Display Date Modified of excludes.list
+        echo "Excludes File Date: `date -r $Excludes_FilePath/$Excludes_FileName`"
+        echo " "
+}
+
+
+
+function CfgDisplay() {
+        # Define local variables for this function only.
+        local Cfg_Description=" $1"
+        local Cfg_Variable="$2"
+
+        # Define format: Left-justify with specified widths, followed by a newline (\n)
+        # %-15s: 15 chars wide, left-justified
+        # %-10s: 10 chars wide, left-justified
+        # %-5s: 5 chars wide, left-justified
+        FORMAT="%-15s %-10s %-5s\n"
+
+
+        printf "$FORMAT" "$Cfg_Description $Cfg_Variable"
+}
+

@@ -1,0 +1,10 @@
+#####################################################################################################################################
+# Remove Filtered File - Called only if $Cfg_REMOVE_FILTERED_FILE is set to ENABLED #                                               #
+#####################################################################################################################################
+
+function RemoveFilteredFile() {
+# Remove $FilteredExcludes_FileName
+        echo "Removing Filtered File $FilteredExcludes_FileName..."
+        rm $FilteredExcludes_FileName
+}
+

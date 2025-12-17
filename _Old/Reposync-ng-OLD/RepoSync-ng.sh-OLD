@@ -1,0 +1,51 @@
+# Before we do anything, we MUST run our PreLoader!
+ source ./AdvPreLoader.sh
+ echo " "
+
+## PreLoader still fails!  Here is a workaround...
+function SourceConfig_WorkAround() {
+	source config/RepoSync-ng.conf
+}
+
+function SourceFunctions_WorkAround() {
+	source functions/DisplayOptions.bfunc
+	source functions/FilterExcludes.bfunc
+	source functions/ParseConfigOptions.bfunc
+	source functions/PerformRepoSync.bfunc
+	source functions/RemoveFilteredFile.bfunc
+	source functions/SanityChecks.bfunc
+	source functions/ShowAndTell.bfunc
+	source functions/ShowCase.bfunc
+}
+
+function SourceProfilesWorkAround() {
+	source profiles/*.bprofile
+}
+
+## Simple Call For Workarounds
+function Perform_Source_WorkAround() {
+	SourceConfig_WorkAround
+	SourceFunctions_WorkAround
+#	SourceProfiles_WorkAround
+}
+
+
+# Perform Source Workaround
+## Perform_Source_WorkAround
+
+# Display Banner
+DisplayBanner
+
+# Sanity Checks
+Perform_SanityChecks
+Perform_ConfigOptsParse
+
+# Present Options
+ShowCase
+
+# Filter Excludes File
+FilterExcludesFile
+
+### Main Operation ###
+# Run RepoSync
+PerformRepoSync
