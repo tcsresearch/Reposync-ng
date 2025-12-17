@@ -19,7 +19,7 @@
 
   
 <div id="Proposed-Features">
-  <details>
+  <details open>
     <summary>
       <b>Proposed Features</b>
     </summary>
@@ -34,7 +34,7 @@
 </div>
 <hr>
 <div id="TODO">
-  <details>
+  <details open>
     <summary>
     <b>TODO</b>
     </summary>
@@ -55,7 +55,7 @@
 
 <hr>
 <div id="Updates_12-2025">
-  <details open>
+  <details>
     <summary>
       <b>Updates 12/2025</b>
     </summary>
