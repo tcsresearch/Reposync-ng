@@ -27,9 +27,9 @@
 # This section will supercede the Reposync Options section once implemented.
 # TODO: Enable ability to use 0/1, Y/N, y/n, True/False (convert to uppercase before processing on run)
 
-  Cfg_KEEP_NEWEST_ONLY="0"
-  Cfg_DOWNLOAD_METADATA="0"
-  Cfg_DELETE_ENABLED="0"
+  Cfg_KEEP_NEWEST_ONLY="1"
+  Cfg_DOWNLOAD_METADATA="1"
+  Cfg_DELETE_ENABLED="1"
   Cfg_DEBUG_ENABLED="0"
 
 # Options here are not parameters for Reposync; they are options for this utility.
@@ -78,7 +78,7 @@ function DisplayBanner() {
 
 
 function ParseConfigOpts_Test() {
-	# Tesmporary variable for now until development completed.
+	# Temporary variable for now until development completed.
 	VAR="enabled"
 	
 	# TODO: Allow for capitalized variants of these.
@@ -218,14 +218,14 @@ function Perform_ConfigOptsParse() {
 # Sanity Checks #                                                                                                                  #
 ####################################################################################################################################
 
-function SanityCheck_DoesExcludeFileExist() {
+function SanityCheck_DoesExcludesFileExist() {
 	if [ ! -f $$Excludes_FilePath/$Excludes_FileName ]; then
 		echo "ERROR! Excludes File $Excludes_FilePath/$Excludes_FileName does not exist!"
 		exit 1
 	fi
 }
 
-function SanityCheck_DoesFilteredExcludeFileExist() {
+function SanityCheck_DoesFilteredExcludesFileExist() {
         if [ ! -f $$Excludes_FilePath/$FilteredExcludes_FileName ]; then
                 echo "ERROR! Excludes File $Excludes_FilePath/$FilteredExcludes_FileName does not exist!"
                 exit 1
@@ -398,9 +398,12 @@ while [[ "$#" -gt 0 ]]; do
 	    ;;
     	  *)
 	   # Handle other arguments or unknown options
-            echo "Unknown argument: $1"
-            shift
-            ;;	  
+           # echo "Unknown argument: $1"
+            # shift
+             DisplayBanner    
+	    	echo "Usage: $0 [--show-config | --show-excludes] [--repoid=<value>]"
+	    	exit 1
+			;;	  
 	esac
 done
 
