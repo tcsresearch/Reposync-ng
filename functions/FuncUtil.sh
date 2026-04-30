@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Store results inside a variable.
 NumberOfFoundFunctions=$(eval cat *.bfunc | grep function | grep { | wc -l)
 
