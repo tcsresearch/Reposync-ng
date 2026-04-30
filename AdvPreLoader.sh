@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # BLING PreLoader Utility
 #
 # TODO: Add to BLING
