@@ -251,7 +251,7 @@ function SanityCheck_IsRepoIDNotEmpty(){
 }
 
 ##### IMPORTANT #####
-# This MUST be the last function in this section, as it requires the preceding functions to be defined first.
+# The function Perform_SanityChecks() MUST be the last function in this section, as it requires the preceding functions to be defined first.
 
 function Perform_SanityChecks() {
 # Run all sanity checks easily with this function.
@@ -279,15 +279,15 @@ function ShowExcludes() {
 
 # Show Current Config #
 function ShowConfig() {
-        echo "Displaying Current Configuration..."
-        echo " "
+    echo "Displaying Current Configuration..."
+    echo " "
 	echo "###################################################################"
 	echo "# Excludes Files Info #                                           #"
 	echo "###################################################################"
-        echo "	Excludes File Path: $Excludes_FilePath"
+    echo "	Excludes File Path: $Excludes_FilePath"
 	echo "	Excludes Filename: $Excludes_FileName"
 	echo "	Filtered Excludes Filename: $FilteredExcludes_FileName"
-        echo "  Excludes File Date: `date -r $Excludes_FilePath/$Excludes_FileName`"
+    echo "  Excludes File Date: `date -r $Excludes_FilePath/$Excludes_FileName`"
 	echo " "
 	echo "###################################################################"
 	echo "# Configured Options #                                            #"
