@@ -203,7 +203,7 @@ function ParseConfigOpts_Download_MetaData() {
 }
 
 ##### IMPORTANT #####
-# This MUST be the last function in this section, as it requires the preceding functions to be defined first.
+# The function Perform_ConfigOptsParse() MUST be the last function in this section, as it requires the preceding functions to be defined first.
 
 function Perform_ConfigOptsParse() {
 # Parse all configuration options easily with this function.
