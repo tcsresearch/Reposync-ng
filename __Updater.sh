@@ -69,7 +69,7 @@ function DisplayBanner() {
 	echo "RepoSync Utility."
 	echo " "
 	# Display Date Modified of excludes.list
-	echo "Excludes File Date: `date -r $Excludes_FilePath/$Excludes_FileName`"
+	echo "Excludes File Date: $(date -r $Excludes_FilePath/$Excludes_FileName)"
 }	
 
 
@@ -287,7 +287,7 @@ function ShowConfig() {
     echo "	Excludes File Path: $Excludes_FilePath"
 	echo "	Excludes Filename: $Excludes_FileName"
 	echo "	Filtered Excludes Filename: $FilteredExcludes_FileName"
-    echo "  Excludes File Date: `date -r $Excludes_FilePath/$Excludes_FileName`"
+    echo "  Excludes File Date: $(date -r $Excludes_FilePath/$Excludes_FileName)"
 	echo " "
 	echo "###################################################################"
 	echo "# Configured Options #                                            #"
@@ -358,7 +358,11 @@ function RemoveFilteredFile() {
 function PerformRepoSync() {
 # Perform Repo Sync #
         # $prog $args --repoid=updates --exclude=*debug*,*-langpack-*,*-source-*,*-src-*,*-headless-*,*-langpack-*,libreoffice-help-*,
-        $prog $args --repoid=$RepoID --exclude='$Repo_Excludes'
+        
+		# The following line was current until April 30, 2026.
+		## $prog $args --repoid=$RepoID --exclude='$Repo_Excludes'
+		
+		"$prog" "$args" --repoid="$RepoID" --exclude="$Repo_Excludes" # Shellcheck fixed version
 }
 
 
