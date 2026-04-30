@@ -1,19 +1,22 @@
+#!/usr/bin/env bash
+
 # Define Files and Folders.
-CONFIG_DIR="$(pwd)/config/_Old"
+  CONFIG_DIR="$(pwd)/config/_Old"
 
 # CONFIG_FILE="test.ini"
 #  CONFIG_FILE="config.ini"
   CONFIG_FILE="RepoSync-ng.ini"
 
-FUNC_DIR="$(pwd)/functions"
-FUNC_FILE="lib_ini.bfunc"
+# Functions
+  FUNC_DIR="$(pwd)/functions"
+  FUNC_FILE="lib_ini.bfunc"
 
 # Colors for Cecho-like output
-COLORS_FILE="Colors.conf"
+  COLORS_FILE="Colors.conf"
 
 # Source our Color Config
-if [ -f $CONFIG_DIR/$COLORS_FILE ]; then
-	source $CONFIG_DIR/$COLORS_FILE
+if [ -f "$CONFIG_DIR"/"$COLORS_FILE" ]; then
+	source "$CONFIG_DIR"/"$COLORS_FILE"
 fi
 
 
@@ -71,7 +74,8 @@ print_INI() {
 }
 
 # Source our INI Library
-source $FUNC_DIR/$FUNC_FILE
+# TODO: Add Sanity Check
+source "$FUNC_DIR"/"$FUNC_FILE"
 
 
 
