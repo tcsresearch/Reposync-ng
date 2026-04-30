@@ -9,4 +9,4 @@ EXCLUDE_ARGS=$(awk '{for(i=1;i<=NF;i++) printf "--exclude=%s ", $i}' FS=',' $EXC
 
 # Execute the reposync command with the generated excludes
 # dnf reposync --repoid=$REPO_ID -p $DOWNLOAD_DIR $EXCLUDE_ARGS
-dnf reposync --repoid=$REPO_ID $EXCLUDE_ARGS
+dnf reposync --repoid="$REPO_ID" "$EXCLUDE_ARGS"
