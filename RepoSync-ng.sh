@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Before we do anything, we MUST run our PreLoader!
  source ./AdvPreLoader.sh
  echo " "
