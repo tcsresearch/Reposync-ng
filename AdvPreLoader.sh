@@ -23,8 +23,8 @@ FUNC_FILE="lib_ini.bfunc"
 COLORS_FILE="Colors.conf"
 
 # Source our Color Config
-if [ -f $CONFIG_DIR/$COLORS_FILE ]; then
-        source $CONFIG_DIR/$COLORS_FILE
+if [ -f "$CONFIG_DIR"/"$COLORS_FILE" ]; then
+        source "$CONFIG_DIR"/"$COLORS_FILE"
 fi
 
 ####################################################################################################################################
