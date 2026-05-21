@@ -36,6 +36,13 @@ function ListDisabledRepos() {
         dnf5 repo list --disabled | awk 'NR>1 {print $1}'
 }
 
+
+## Added May 21 2026 ###
+functions ListAllRepos() {
+        ListEnabledRepos
+        ListDisabledRepos
+}
+
 #################################################################################
 # TODO List #                                                           #
 #################################################################################
