@@ -42,7 +42,7 @@ function ListDisabledRepos() {
 
 
 ## Added May 21 2026 ###
-functions ListAllRepos() {
+function ListAllRepos() {
         ListEnabledRepos
         ListDisabledRepos
 }
