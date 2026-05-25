@@ -28,7 +28,10 @@ Function Files
 -  RemoveFilteredFile.bfunc  -  Removes The Temporary Filtered Excludes File.
 	
 
--  SanityChecks.bfunc  -  Sanity Checker.  Confirmed Files/Folders Are Present And Certain Functions Are NOT Empty.
+-  SanityChecks.bfunc  -  Sanity Checker.  Confirm Files/Folders Are Present And Certain Functions Are NOT Empty.
+
+-  SourceExcludesFile.bfunc - Sources the excludes file and puts it into the variable $ExcludesFile.
+  	Use 'cat $ExcludesFile' to display excludes and 'echo $ExcludesFile' to show excludes filename.  
 	
 
 -  ShowAndTell.bfunc  - Controls Additional Output Capabilities.
