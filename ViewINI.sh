@@ -22,6 +22,7 @@ fi
 
 ### This section is depricated and can be removed after testing.
 function DefineColors() {
+# shellcheck disable=SC2034  # Unused variables left for readability
 # Define Our Colors
 # Define color variables
   black="$(tput setaf 0)"
