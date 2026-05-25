@@ -1,0 +1,14 @@
+function SourceExcludes() {
+	ExcludesFile="./excludes-filtered2.list"
+	# Filter and load into a bash variable
+	# excludes=($(grep -vE '^\s*($|#)' excludes-filtered2.list))
+	excludes=($(grep -vE '^\s*($|#)' $ExcludesFile))
+		
+
+	# Example usage:
+	# echo "Files to exclude: ${excludes[@]}"
+	echo "ExcludesFile: $ExcludesFile"
+}
+
+
+
