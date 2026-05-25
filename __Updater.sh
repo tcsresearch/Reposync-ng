@@ -69,7 +69,7 @@ function DisplayBanner() {
 	echo "RepoSync Utility."
 	echo " "
 	# Display Date Modified of excludes.list
-	echo "Excludes File Date: $(date -r $Excludes_FilePath/$Excludes_FileName)"
+	echo "Excludes File Date: $(date -r "$Excludes_FilePath/$Excludes_FileName")"
 }	
 
 
