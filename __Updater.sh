@@ -287,7 +287,7 @@ function ShowConfig() {
     echo "	Excludes File Path: $Excludes_FilePath"
 	echo "	Excludes Filename: $Excludes_FileName"
 	echo "	Filtered Excludes Filename: $FilteredExcludes_FileName"
-    echo "  Excludes File Date: $(date -r $Excludes_FilePath/$Excludes_FileName)"
+    echo "  Excludes File Date: $(date -r "$Excludes_FilePath/$Excludes_FileName")"
 	echo " "
 	echo "###################################################################"
 	echo "# Configured Options #                                            #"
