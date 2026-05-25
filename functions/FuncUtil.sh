@@ -25,7 +25,7 @@ function IsFunctionDefined() {
 
 function AreFunctionDefined() {
         ## TODO: Have ShowFunctions output generate a list of functions for this to use.
-        my_function_list=`cat functions.list`
+        my_function_list=$(cat functions.list)
 	if [ "$(type -t my_function_list)" == "function" ]; then
           echo "Function my_function is defined."
         else
