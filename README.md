@@ -52,20 +52,3 @@ The ultimate successor to RepoSync scripts, including RepoSync4.sh
   </details>
 </div>
 
-<hr>
-<div id="Updates_12-2025">
-  <details>
-    <summary>
-      <b>Updates 12/2025</b>
-    </summary>
-      <ul>
-        <li> Updated Cecho function for easy fallback when no color is selected. </li>
-        <li> Added several functions and scripts related to boot: <br>
-            - chipset detection, disable secure boot, change between graphical and commandline, etc. - NOT FULLY TESTED! </li>
-        <li> Added TakeOwnership.sh (UNTESTED!). </li>
-        <li> Added a few Reposync-ngDev functions to allow for easier development in the future. <br>
-          - loader for config/ and functions/ folders, sanity checks, CASE statement generation, extracting functions, etc - UNTESTED! </li>
-        <li> Added NewEchoBox and SimpleBanner functions. </li>
-        </ul>
-  </details>
-</div>
