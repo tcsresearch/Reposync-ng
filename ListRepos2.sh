@@ -10,8 +10,8 @@
 ### Enable Cecho ###
 function EnableCecho() {
         CechoFile="./Cecho.bfunc"
-        if [  -f $CechoFile ]; then
-                source $CechoFile
+        if [  -f "$CechoFile" ]; then
+                source "$CechoFile"
                 cecho green "Cecho Enabled."
         else
                 echo "ERROR! Cecho Library File $CechoFile NOT Found..."
