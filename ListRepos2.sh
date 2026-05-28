@@ -1,3 +1,5 @@
+#!/bin/env bash
+
 # List repos
 # dnf5 repo list --enabled | awk '{print $1}' | grep -v '^$'
 
