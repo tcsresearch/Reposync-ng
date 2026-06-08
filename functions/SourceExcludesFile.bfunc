@@ -1,4 +1,5 @@
-function SourceExcludes() {
+function SourceExcludes() { # Should we rename this function?  The file isn't and cannot be sourced.
+	# TIP: Do NOT source the excludes files, as they run commands.  Only read them and place contents into a variable.
 	ExcludesFile="./excludes-filtered2.list"
 	# Filter and load into a bash variable
 	# excludes=($(grep -vE '^\s*($|#)' excludes-filtered2.list))
