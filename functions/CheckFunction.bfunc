@@ -1,0 +1,18 @@
+# CheckFunction.bfunc -  Checks if a variable is not empty before continuing.
+
+check_variable() { 
+    local MY_VAR="$1"
+
+    # Check if the variable is empty
+    if [[ -z "$MY_VAR" ]]; then
+        echo "Error: Variable is empty. Stopping function." >&2
+        return 1  # Use 'exit 1' instead if you want to stop the whole script
+    fi
+
+    echo "Variable is not empty: $MY_VAR"
+    # Your main function logic continues here
+}
+
+# Testing the function
+check_variable "Hello"  # Continues
+check_variable ""       # Stops
