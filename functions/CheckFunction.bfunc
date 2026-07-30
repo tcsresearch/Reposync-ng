@@ -16,3 +16,21 @@ check_variable() {
 # Testing the function
 check_variable "Hello"  # Continues
 check_variable ""       # Stops
+
+
+check_variable_fast() {
+    # If -n (not empty) fails, print error and return 1
+    [[ -n "$1" ]] || { echo "Error: Missing value." >&2; return 1; }
+
+    echo "Continuing with: $1"
+}
+
+
+check_native() {
+    local MY_VAR="$1"
+    
+    # If MY_VAR is empty, Bash prints the error and halts execution
+    : "${MY_VAR:?Error: Variable cannot be empty.}"
+    
+    echo "Continuing with: $MY_VAR"
+}
