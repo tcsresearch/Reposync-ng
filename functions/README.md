@@ -6,6 +6,7 @@ Function Files
 - Document what each config file does
   
 <h4> Files </h4>
+
 - CleanMetadata.bfunc  -  Runs ```dnf clean metadata```
 	
 
