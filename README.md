@@ -1,5 +1,5 @@
 # Reposync-ng
-The ultimate successor to RepoSync scripts, (incl. RepoSync6.sh, RepoSync7.sh, RepoSync9.sh, etc.)
+The ultimate successor to MirrorMan's RepoSync scripts, (incl. RepoSync6.sh, RepoSync7.sh, RepoSync9.sh, etc.)
 <h4> A Complex wrapper for reposync with many features </h4>
 <hr>
 
