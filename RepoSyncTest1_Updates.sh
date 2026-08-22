@@ -3,7 +3,7 @@
 # Configuration
 EXCLUDE_FILE="excludes.list"
 REPO_ID="updates" # Change to your target repository ID
-DEST_DIR="updates"
+DEST_DIR="/home/mirrors/dnf5-repos/Fedora"
 
 # Ensure the exclude file exists
 if [ ! -f "$EXCLUDE_FILE" ]; then
