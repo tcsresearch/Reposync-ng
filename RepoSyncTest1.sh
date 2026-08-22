@@ -2,8 +2,8 @@
 
 # Configuration
 EXCLUDE_FILE="excludes.list"
-REPO_ID="fedora" # Change to your target repository ID
-DEST_DIR="/var/www/html/repos"
+REPO_ID="updates" # Change to your target repository ID
+DEST_DIR="updates"
 
 # Ensure the exclude file exists
 if [ ! -f "$EXCLUDE_FILE" ]; then
