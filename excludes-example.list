@@ -1,0 +1,10 @@
+# Exclude entire development environments
+*.src
+*.nosrc
+
+# Exclude heavy packages not needed on production
+*gimp*
+*libreoffice*
+
+# Exclude specific architectures if needed
+*.i686
