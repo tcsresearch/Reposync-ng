@@ -8,14 +8,14 @@
 
 
 function SanityCheck_DoesExcludeFileExist() {
-        if [ ! -f $$Excludes_FilePath/$Excludes_FileName ]; then
+        if [ ! -f "$Excludes_FilePath"/"$Excludes_FileName" ]; then
                 echo "ERROR! Excludes File $Excludes_FilePath/$Excludes_FileName does not exist!"
                 exit 1
         fi
 }
 
 function SanityCheck_DoesFilteredExcludeFileExist() {
-        if [ ! -f $$Excludes_FilePath/$FilteredExcludes_FileName ]; then
+       if [ ! -f "$Excludes_FilePath"/"$FilteredExcludes_FileName" ]; then
                 echo "ERROR! Excludes File $Excludes_FilePath/$FilteredExcludes_FileName does not exist!"
                 exit 1
         fi
