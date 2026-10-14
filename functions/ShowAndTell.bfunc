@@ -22,7 +22,7 @@ function ShowConfig() {
         CfgDisplay      "  Excludes File Path:          $Excludes_FilePath"
         CfgDisplay      "  Excludes Filename:           $Excludes_FileName"
         CfgDisplay      "  Filtered Excludes:           $FilteredExcludes_FileName"
-        CfgDisplay      "  Excludes File Date:          `date -r $Excludes_FilePath/$Excludes_FileName`"
+        CfgDisplay      "  Excludes File Date:          $(date -r "$Excludes_FilePath"/"$Excludes_FileName")"
         echo " "
         echo "###################################################################"
         echo "# Configured Options #                                            #"
