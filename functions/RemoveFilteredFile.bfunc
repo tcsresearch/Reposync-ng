@@ -5,6 +5,6 @@
 function RemoveFilteredFile() {
 # Remove $FilteredExcludes_FileName
         echo "Removing Filtered File $FilteredExcludes_FileName..."
-        rm $FilteredExcludes_FileName
+        rm "$FilteredExcludes_FileName"
 }
 
