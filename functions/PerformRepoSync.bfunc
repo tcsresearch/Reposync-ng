@@ -5,6 +5,7 @@
 function PerformRepoSync() {
 # Perform Repo Sync #
         # $prog $args --repoid=updates --exclude=*debug*,*-langpack-*,*-source-*,*-src-*,*-headless-*,*-langpack-*,libreoffice-help-*,
-        $prog $args --repoid=$RepoID --exclude='$Repo_Excludes'
+        ## $prog $args --repoid=$RepoID --exclude='$Repo_Excludes'
+        $prog "$args" --repoid="$RepoID" --exclude='$Repo_Excludes'
 }
 
