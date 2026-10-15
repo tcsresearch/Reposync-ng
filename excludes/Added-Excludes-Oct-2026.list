@@ -25,3 +25,14 @@ warzone2100-*
 wesnoth-data
 widelands
 xonotic-data
+
+arm-none-eabi-gcc-cs
+cp2k-*
+frama-c-*
+kicad-packages3d-*
+magma
+megaglest-data
+openblas-static
+rocsparse
+
+
