@@ -5,7 +5,7 @@
 
 # Configuration
 EXCLUDES_FILE="$(pwd)/excludes/excludes.list"
-REPO_ID="Unknown" # Change to your target repository ID
+REPO_ID="$1" # Change to your target repository ID
 DEST_DIR="/home/mirrors/dnf5-repos/Fedora"
 
 COLORS_FILE="$(pwd)/config/Colors2.conf"
@@ -36,6 +36,10 @@ function LoadColors() {
  	  reset=$(tput sgr0) # Reset to default 
 }
 
+######################################################################################################################
+# SANITYCHECKER FUNCTIONS #																							 #
+######################################################################################################################
+
 function SanityChecker_ColorsFileExists() {
 # Ensure the colors file exists
 	if [ -f "$COLORS_FILE" ]; then
@@ -55,12 +59,9 @@ function SanityChecker_ExcludesFileExists() {
 	fi
 }
 
-function SanityChecker_CheckRepoInputVal() {
-  if [[ "$INPUT_VAL" == "Unknown" ]]; then
-    echo "ERROR: Invalid Repo Selected...quitting!"
-    return 1
-fi
-}
+######################################################################################################################
+# EXCLUDES FUNCTIONS #																								 #
+######################################################################################################################
 
 function DetermineNumOfExcludes() {
 # Read excludes file and determine the number of excluded packages
@@ -110,6 +111,8 @@ function DisplayBanner_WithColor() {
 }
 
 ######################################################################################################################
+# REPO SELECTIONFUNCTIONS #																							 #
+######################################################################################################################
 
 function ReadRepoInputVal(){
   # Example input variable (replace with your variable or argument)
@@ -131,6 +134,35 @@ function ReadRepoInputVal(){
 }
 
 
+function RepoSelect() {
+	# 1. Check if an argument was provided
+		if [ -z "$1" ]; then
+    		echo "Error: Missing argument. Please specify 'fedora' or 'updates'." >&2
+    		echo "Usage: $0 [fedora|updates]" >&2
+    		return 1
+		fi
+
+	# 2. Assign the argument to REPO_ID
+		REPO_ID="$1"
+
+	# 3. Validate the input using a case statement
+		case "$REPO_ID" in
+    		"fedora"|"updates")
+        		echo "Success: REPO_ID set to '$REPO_ID'"
+        		# Your main script logic goes here
+        	;;
+    		*)
+        	echo "Error: Invalid argument '$REPO_ID'." >&2
+        	echo "Allowed options are 'fedora' or 'updates'." >&2
+        	return 1
+        	;;
+		esac
+}
+
+
+######################################################################################################################
+# DEFINE REPOSYNC/EXCLUDES FUNCTIONS #																				 #
+######################################################################################################################
 
 function Do_RepoSync() {
     # Execute DNF5 reposync
@@ -165,8 +197,9 @@ LoadColors
 # SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
 
-ReadRepoInputVal
-SanityChecker_CheckRepoInputVal
+RepoSelect
+# ReadRepoInputVal
+# SanityChecker_CheckRepoInputVal
 
 DetermineNumOfExcludes
 ProcessExcludesFile
