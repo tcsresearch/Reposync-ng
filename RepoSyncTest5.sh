@@ -6,6 +6,7 @@
 # Configuration #
 CONFIG_FILE="$(pwd)/config/RepoSyncTest.conf"
 FUNC_FILE="$(pwd)/RepoSyncTest4.bfunc"
+EXCLUDES_FILE="$(pwd)/excludes/excludes.list"
 COLORS_FILE="$(pwd)/config/Colors2.conf"
 
 IS_ColorsFile_Loaded="0"
