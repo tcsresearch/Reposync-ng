@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+# shellcheck disable=SC2034
+
 # Configuration
 EXCLUDES_FILE="excludes.list"
 REPO_ID="updates" # Change to your target repository ID
