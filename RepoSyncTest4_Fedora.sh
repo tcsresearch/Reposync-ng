@@ -102,8 +102,10 @@ fi
 ##################################################################################
 
 LoadColors
+
 SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
+
 DetermineNumOfExcludes
 ProcessExcludesFile
 CheckRules_Excludes
