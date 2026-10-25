@@ -61,7 +61,7 @@ function ProcessExcludesFile () {
 }
 
 
-function DisplayBanner() {
+function DisplayBanner_NoColor() {
     echo "-----------------------------------------------------"
     echo "Syncing Repository: $REPO_ID"
     echo "-----------------------------------------------------"
@@ -72,6 +72,19 @@ function DisplayBanner() {
     echo "Excluding Packages: $exclude_string"
     echo "-----------------------------------------------------"
 }
+
+function DisplayBanner_WithColor() {
+    echo "${green}-----------------------------------------------------${reset}"
+    echo "Syncing Repository: $REPO_ID"
+    echo "${green}-----------------------------------------------------${reset}"
+    echo "Excludes File: $EXCLUDES_FILE"
+    echo "${green}-----------------------------------------------------${reset}"
+    echo "Number Of Excludes: $NumOfExcludes"
+    echo "${green}-----------------------------------------------------${reset}"
+    echo "Excluding Packages: $exclude_string"
+    echo "${green}-----------------------------------------------------${reset}"
+}
+
 
 
 function Do_RepoSync() {
