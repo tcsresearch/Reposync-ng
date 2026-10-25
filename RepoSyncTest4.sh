@@ -71,6 +71,7 @@ function SanityChecker_ExcludesFileExists() {
 
 function DisplayBanner() {
 	echo "$0 - Version $RepoSync_Version"
+	NewLine
 }
 
 function NewLine() {
@@ -167,7 +168,7 @@ function ReadRepoInputVal(){
 function RepoSelect() {
 	# 1. Check if an argument was provided
 		if [ -z "$1" ]; then
-    		echo "Error: Missing argument. Please specify 'fedora' or 'updates'." >&2
+    		echo "ERROR (zTest): Missing argument. Please specify 'fedora' or 'updates'." >&2
     		echo "Usage: $0 [fedora|updates]" >&2
     		return 1
 		fi
@@ -178,12 +179,12 @@ function RepoSelect() {
 	# 3. Validate the input using a case statement
 		case "$REPO_ID" in
     		"fedora"|"updates")
-        		echo "Success: REPO_ID set to '$REPO_ID'"
+        		echo "REPO_ID set to '$REPO_ID'."
         		# Your main script logic goes here
 				RunMain
         	;;
     		*)
-        	echo "Error: Invalid argument '$REPO_ID'." >&2
+        	echo "ERROR (CaseTest): Invalid argument '$REPO_ID'." >&2
         	echo "Allowed options are 'fedora' or 'updates'." >&2
         	return 1
         	;;
