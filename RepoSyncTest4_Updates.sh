@@ -3,11 +3,11 @@
 # shellcheck disable=SC2034
 
 # Configuration
-EXCLUDES_FILE="excludes.list"
+EXCLUDES_FILE="$(pwd)/excludes/excludes.list"
 REPO_ID="updates" # Change to your target repository ID
 DEST_DIR="/home/mirrors/dnf5-repos/Fedora"
 
-COLORS_FILE="Colors2.conf"
+COLORS_FILE="$(pwd)/config/Colors2.conf"
 
 function LoadColors() {
 # Define Our Colors
