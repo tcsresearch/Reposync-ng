@@ -36,12 +36,13 @@ function LoadColors() {
 }
 
 function SanityChecker_ColorsFileExists() {
-# Ensure the excludes file exists
-	if [ ! -f "$COLORS_FILE" ]; then
-    		echo "Error: Excludes file '$COLORS_FILE' not found." >&2
-    		return 1
-	fi
-}
+# Ensure the colors file exists
+	if [ -f "$COLORS_FILE" ]; then
+    source "$COLORS_FILE"
+else
+    echo "Error: Excludes file $COLORS_FILE not found." >&2
+    return 1
+fi
 
 function SanityChecker_ExcludesFileExists() {
 # Ensure the excludes file exists
