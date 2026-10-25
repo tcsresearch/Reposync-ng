@@ -62,7 +62,9 @@ function ProcessExcludesFile () {
 }
 
 
-function DisplayBanner() {
+
+
+function DisplayBanner_WithColor() {
     echo "${green}-----------------------------------------------------${reset}"
     echo "Syncing Repository: $REPO_ID"
     echo "${green}-----------------------------------------------------${reset}"
