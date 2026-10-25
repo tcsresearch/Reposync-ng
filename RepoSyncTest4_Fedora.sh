@@ -62,6 +62,12 @@ function ProcessExcludesFile () {
 }
 
 
+function DisplayBanner() {
+	# TODO: Determine if $COLORS_FILE is sourced, and then run either DisplayBanner_NoColor or DisplayBanner_WithColor
+	DisplayBanner_WithColor
+}
+
+
 function DisplayBanner_NoColor() {
     echo "-----------------------------------------------------"
     echo "Syncing Repository: $REPO_ID"
