@@ -1,5 +1,8 @@
 #!/bin/env bash
 
+# shellcheck disable=SC2034
+# shellcheck source=/dev/null
+
 # Configuration #
 CONFIG_FILE="RepoSyncTest.conf"
 FUNC_FILE="/RepoSyncTest.bfunc"
