@@ -110,9 +110,9 @@ function ProcessExcludesFile () {
 
 RepoSyncBanner() {
     if [ "$Is_ColorsFile_Loaded" = "1" ]; then
-        DisplayBanner_WithColor
+        RepoSyncBanner_WithColor
     else
-        DisplayBanner_NoColor
+        RepoSyncBanner_NoColor
     fi
 }
 
@@ -261,14 +261,14 @@ DisplayBanner
 # SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
 
-RepoSelect2
+# RepoSelect2
 # ReadRepoInputVal
 # SanityChecker_CheckRepoInputVal
 
 # Superceded by RunMain()
-# DetermineNumOfExcludes
-# ProcessExcludesFile
-# CheckRules_Excludes
+ DetermineNumOfExcludes
+ ProcessExcludesFile
+ CheckRules_Excludes
 
 # Called by RepoSelect
 # RunMain
