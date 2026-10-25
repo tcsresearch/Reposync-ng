@@ -184,9 +184,9 @@ function CheckRules_Excludes() {
     	# Combine array elements into a single comma-separated string
     	  exclude_string=$(IFS=,; echo "${exclude_array[*]}")
 
-          DisplayBanner
-	  Do_RepoSync
-fi
+          # DisplayBanner
+	  	  Do_RepoSync
+	fi
 }
 
 function RunMain() {
@@ -200,6 +200,7 @@ function RunMain() {
 ##################################################################################
 
 LoadColors
+DisplayBanner
 
 # SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
