@@ -35,6 +35,23 @@ function LoadColors() {
 }
 
 
+function SanityChecker_ColorsFileExists() {
+# Ensure the excludes file exists
+	if [ ! -f "$COLORS_FILE" ]; then
+    		echo "Error: Excludes file '$COLORS_FILE' not found." >&2
+    		exit 1
+	fi
+}
+
+
+function SanityChecker_ExcludesFileExists() {
+# Ensure the excludes file exists
+	if [ ! -f "$EXCLUDES_FILE" ]; then
+    		echo "Error: Excludes file '$EXCLUDES_FILE' not found." >&2
+    		exit 1
+	fi
+}
+
 
 # Sanity Checker #
 SanityChecker() {
@@ -60,10 +77,13 @@ SanityChecker() {
 # Main Program #                                                                 #
 ##################################################################################
 
-LoadColors
-SanityChecker RepoSyncTest.bfunc
+# LoadColors
 
+SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
+
+# SanityChecker RepoSyncTest.bfunc
+
 DetermineNumOfExcludes
 ProcessExcludesFile
 CheckRules_Excludes
