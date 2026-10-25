@@ -45,6 +45,7 @@ else
     echo "Error: Excludes file $COLORS_FILE not found." >&2
     return 1
 fi
+}
 
 function SanityChecker_ExcludesFileExists() {
 # Ensure the excludes file exists
