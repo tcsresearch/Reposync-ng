@@ -5,7 +5,7 @@
 
 # Configuration #
 CONFIG_FILE="$(pwd)/config/RepoSyncTest.conf"
-FUNC_FILE="$(pwd)/functions/RepoSyncTest.bfunc"
+FUNC_FILE="$(pwd)/RepoSyncTest4.bfunc"
 COLORS_FILE="$(pwd)/config/Colors2.conf"
 
 IS_ColorsFile_Loaded="0"
