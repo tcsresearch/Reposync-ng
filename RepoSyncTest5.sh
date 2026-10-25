@@ -5,7 +5,7 @@
 
 # Configuration #
 CONFIG_FILE="RepoSyncTest.conf"
-FUNC_FILE="/RepoSyncTest.bfunc"
+FUNC_FILE="RepoSyncTest.bfunc"
 
 function LoadColors() {
 # Define Our Colors
