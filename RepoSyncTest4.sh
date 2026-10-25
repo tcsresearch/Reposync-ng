@@ -70,7 +70,7 @@ function SanityChecker_ExcludesFileExists() {
 ######################################################################################################################
 
 function DisplayBanner() {
-	echo "$0 - Version $RepoSync_Version
+	echo "$0 - Version $RepoSync_Version"
 }
 
 function NewLine() {
@@ -218,8 +218,8 @@ function CheckRules_Excludes() {
 # Check if there are any rules to process
 	if [ ${#exclude_array[@]} -eq 0 ]; then
     	   echo "[ WARNING ]: No exclusions found in $EXCLUDES_FILE. Syncing entire repository..."
-    	   dnf5 reposync --repo="$REPO_ID" --destdir="$DEST_DIR" --download-metadata --delete
-		  # Do_RepoSync_NoExcludes
+    	   # dnf5 reposync --repo="$REPO_ID" --destdir="$DEST_DIR" --download-metadata --delete
+		   Do_RepoSync_NoExcludes
 	else
     	# Combine array elements into a single comma-separated string
     	  exclude_string=$(IFS=,; echo "${exclude_array[*]}")
