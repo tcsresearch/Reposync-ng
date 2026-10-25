@@ -191,6 +191,21 @@ function RepoSelect() {
 		esac
 }
 
+function RepoSelect2() {
+	# Assign the first argument to REPO_ID
+	REPO_ID="$1"
+
+	case "$REPO_ID" in
+    	fedora|updates)
+        	echo "Valid repository selected: $REPO_ID"
+        	;;
+    	*)
+        	echo "Error: Invalid REPO_ID '$REPO_ID'." >&2
+        	echo "Valid options are: fedora, updates" >&2
+        	return 1
+        	;;
+	esac
+	}
 
 ######################################################################################################################
 # DEFINE REPOSYNC/EXCLUDES FUNCTIONS #																				 #
@@ -246,7 +261,7 @@ DisplayBanner
 # SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
 
-RepoSelect
+RepoSelect2
 # ReadRepoInputVal
 # SanityChecker_CheckRepoInputVal
 
