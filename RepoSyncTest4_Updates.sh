@@ -60,6 +60,12 @@ function ProcessExcludesFile () {
 	mapfile -t exclude_array < <(grep -v -E '^\s*(#|$)' "$EXCLUDES_FILE" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 }
 
+######################################################################################################################
+
+function DisplayBanner() {
+	# TODO: Determine if $COLORS_FILE is sourced, and then run either DisplayBanner_NoColor or DisplayBanner_WithColor
+	DisplayBanner_WithColor
+}
 
 function DisplayBanner_NoColor() {
     echo "-----------------------------------------------------"
@@ -85,7 +91,7 @@ function DisplayBanner_WithColor() {
     echo "${green}-----------------------------------------------------${reset}"
 }
 
-
+######################################################################################################################
 
 function Do_RepoSync() {
     # Execute DNF5 reposync
