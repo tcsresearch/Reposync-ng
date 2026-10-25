@@ -1,11 +1,13 @@
 #!/bin/env bash
 
+# shellcheck disable=SC2034
+
 # Configuration
 EXCLUDES_FILE="excludes.list"
 REPO_ID="fedora" # Change to your target repository ID
 DEST_DIR="/home/mirrors/dnf5-repos/Fedora"
 
-COLORS_file="Colors2.conf"
+COLORS_FILE="Colors2.conf"
 
 function LoadColors() {
 # Define Our Colors
