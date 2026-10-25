@@ -65,10 +65,14 @@ function ProcessExcludesFile () {
 # DEFINE DISPLAYBANNER FUNCTIONS #																					 #
 ######################################################################################################################
 
-function DisplayBanner() {
-	# TODO: Determine if $COLORS_FILE is sourced, and then run either DisplayBanner_NoColor or DisplayBanner_WithColor
-	DisplayBanner_WithColor
+DisplayBanner() {
+    if [ "$Is_ColorsFile_Loaded" = "1" ]; then
+        DisplayBanner_WithColor
+    else
+        DisplayBanner_NoColor
+    fi
 }
+
 
 function DisplayBanner_NoColor() {
     echo "-----------------------------------------------------"
