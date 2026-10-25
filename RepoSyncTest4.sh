@@ -3,6 +3,9 @@
 
 # shellcheck disable=SC2034
 
+# Version
+RepoSync_Version="26.10"
+
 # Configuration
 EXCLUDES_FILE="$(pwd)/excludes/excludes.list"
 REPO_ID="$1" # Change to your target repository ID
@@ -11,6 +14,9 @@ DEST_DIR="/home/mirrors/dnf5-repos/Fedora"
 COLORS_FILE="$(pwd)/config/Colors2.conf"
 IS_ColorsFile_Loaded="0"
 
+######################################################################################################################
+# COLORS #																											 #
+######################################################################################################################
 function LoadColors() {
 # Define Our Colors
 # NEW Sep 14, 2026: Add orange color.
@@ -60,6 +66,28 @@ function SanityChecker_ExcludesFileExists() {
 }
 
 ######################################################################################################################
+# DEFINE DISPLAY FUNCTIONS #																						 #
+######################################################################################################################
+
+function DisplayBanner() {
+	echo "$0 - Version $RepoSync_Version
+}
+
+function NewLine() {
+	echo " "
+}
+
+function DisplayLine() {
+	echo "-------------------------------------"
+}
+
+function NewLineCinema(){
+	NewLine
+	DisplayLine
+	NewLine
+}
+
+######################################################################################################################
 # EXCLUDES FUNCTIONS #																								 #
 ######################################################################################################################
 
@@ -73,11 +101,13 @@ function ProcessExcludesFile () {
 	mapfile -t exclude_array < <(grep -v -E '^\s*(#|$)' "$EXCLUDES_FILE" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 }
 
+
+
 ######################################################################################################################
-# DEFINE DISPLAYBANNER FUNCTIONS #																					 #
+# DEFINE REPOSYNCYBANNER FUNCTIONS #																				 #
 ######################################################################################################################
 
-DisplayBanner() {
+RepoSyncBanner() {
     if [ "$Is_ColorsFile_Loaded" = "1" ]; then
         DisplayBanner_WithColor
     else
@@ -86,7 +116,7 @@ DisplayBanner() {
 }
 
 
-function DisplayBanner_NoColor() {
+function RepoSyncBanner_NoColor() {
     echo "-----------------------------------------------------"
     echo "Syncing Repository: $REPO_ID"
     echo "-----------------------------------------------------"
@@ -98,7 +128,7 @@ function DisplayBanner_NoColor() {
     echo "-----------------------------------------------------"
 }
 
-function DisplayBanner_WithColor() {
+function RepoSyncBanner_WithColor() {
     echo "${green}-----------------------------------------------------${reset}"
     echo "Syncing Repository: $REPO_ID"
     echo "${green}-----------------------------------------------------${reset}"
@@ -165,7 +195,16 @@ function RepoSelect() {
 # DEFINE REPOSYNC/EXCLUDES FUNCTIONS #																				 #
 ######################################################################################################################
 
-function Do_RepoSync() {
+function Do_RepoSync_NoExcludes() {
+    # Execute DNF5 reposync
+    dnf5 reposync \
+        --repo="$REPO_ID" \
+        --destdir="$DEST_DIR" \
+        --download-metadata \
+        --delete
+}
+
+function Do_RepoSync_WithExcludes() {
     # Execute DNF5 reposync
     dnf5 reposync \
         --repo="$REPO_ID" \
@@ -178,14 +217,15 @@ function Do_RepoSync() {
 function CheckRules_Excludes() {
 # Check if there are any rules to process
 	if [ ${#exclude_array[@]} -eq 0 ]; then
-    	   echo "Warning: No exclusions found in $EXCLUDES_FILE. Syncing entire repository..."
-    	   dnf5 reposync --repo="$REPO_ID" --destdir="$DEST_DIR" --download-metadata --delete
+    	   echo "[ WARNING ]: No exclusions found in $EXCLUDES_FILE. Syncing entire repository..."
+    	   # dnf5 reposync --repo="$REPO_ID" --destdir="$DEST_DIR" --download-metadata --delete
+		  Do_RepoSync_NoExcludes
 	else
     	# Combine array elements into a single comma-separated string
     	  exclude_string=$(IFS=,; echo "${exclude_array[*]}")
 
-          # DisplayBanner
-	  	  Do_RepoSync
+          RepoSyncBanner
+	  	  Do_RepoSync_WithExcludes
 	fi
 }
 
@@ -196,7 +236,7 @@ function RunMain() {
 }
 
 ##################################################################################
-# Main Program #								 #
+# Main Program #																 #
 ##################################################################################
 
 LoadColors
