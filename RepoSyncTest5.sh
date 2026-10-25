@@ -15,13 +15,13 @@ IS_ColorsFile_Loaded="0"
 function SanityChecker_ColorsFileExists() {
 # Ensure the colors file exists
 	if [ -f "$COLORS_FILE" ]; then
-    source "$COLORS_FILE"
-	IS_ColorsFile_Loaded="1"
-else
-    echo "Error: Excludes file $COLORS_FILE not found." >&2
-    return 1
+    	source "$COLORS_FILE"
+		Is_ColorsFile_Loaded="1"
+	else
+    	echo "ERROR: Excludes file $COLORS_FILE not found." >&2
+    	return 1
 fi
-
+}
 
 function SanityChecker_ExcludesFileExists() {
 # Ensure the excludes file exists
