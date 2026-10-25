@@ -8,6 +8,7 @@ REPO_ID="updates" # Change to your target repository ID
 DEST_DIR="/home/mirrors/dnf5-repos/Fedora"
 
 COLORS_FILE="$(pwd)/config/Colors2.conf"
+IS_ColorsFile_Loaded="0"
 
 function LoadColors() {
 # Define Our Colors
