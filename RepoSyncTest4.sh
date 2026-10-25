@@ -111,7 +111,7 @@ function DisplayBanner_WithColor() {
 }
 
 ######################################################################################################################
-# REPO SELECTIONFUNCTIONS #																							 #
+# REPO SELECTION FUNCTIONS #																						 #
 ######################################################################################################################
 
 function ReadRepoInputVal(){
@@ -150,6 +150,7 @@ function RepoSelect() {
     		"fedora"|"updates")
         		echo "Success: REPO_ID set to '$REPO_ID'"
         		# Your main script logic goes here
+				RunMain
         	;;
     		*)
         	echo "Error: Invalid argument '$REPO_ID'." >&2
@@ -188,6 +189,12 @@ function CheckRules_Excludes() {
 fi
 }
 
+function RunMain() {
+	DetermineNumOfExcludes
+	ProcessExcludesFile
+	CheckRules_Excludes
+}
+
 ##################################################################################
 # Main Program #								 #
 ##################################################################################
@@ -201,6 +208,10 @@ RepoSelect
 # ReadRepoInputVal
 # SanityChecker_CheckRepoInputVal
 
-DetermineNumOfExcludes
-ProcessExcludesFile
-CheckRules_Excludes
+# Superceded by RunMain()
+# DetermineNumOfExcludes
+# ProcessExcludesFile
+# CheckRules_Excludes
+
+Called by RepoSelect
+# RunMain
