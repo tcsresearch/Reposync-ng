@@ -4,8 +4,10 @@
 # shellcheck source=/dev/null
 
 # Configuration #
-CONFIG_FILE="RepoSyncTest.conf"
-FUNC_FILE="RepoSyncTest.bfunc"
+CONFIG_FILE="$(pwd)/conf/RepoSyncTest.conf"
+FUNC_FILE="$(pwd)/functions/RepoSyncTest.bfunc"
+COLORS_FILE="$(pwd)/conf/Colors2.conf"
+
 
 function LoadColors() {
 # Define Our Colors
