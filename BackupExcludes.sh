@@ -10,7 +10,7 @@ set -euo pipefail
 # --- CONFIGURATION ---
 TARGET_DIR="./_Backups"
 SOURCE_DIR="./excludes"
-BASE_NAME=$(date +%Y%m%d)
+BASE_NAME=ExcludesBackup_$(date +%Y%m%d)
 EXTENSION=".tar.gz"
 
 # Ensure the backup directory exists
