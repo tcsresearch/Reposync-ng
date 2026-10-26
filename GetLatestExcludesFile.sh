@@ -17,7 +17,7 @@ Cfg_BACKUP_FILE="excludes-backup-$(Cfg_DateFmt)"
 
 # Define Fetching App / Args
 Cfg_FetchApp="wget" # Can be: wget/aria2/curl
-Cfg_FetchApp_Wget_Args="-q --show-progress" 
+Cfg_FetchApp_Wget_Args=" -q --show-progress" 
 Cfg_FetchApp_Aria2_Args=" "
 Cfg_FetchApp_Curl_Args=" "
 
