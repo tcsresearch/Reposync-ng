@@ -1,5 +1,7 @@
 #!/bin/env bash
 
+# shellcheck source=/dev/null
+
 # Define Files / Folders
 EXCLUDES_FOLDER="$(pwd)/excludes"
 EXCLUDES_FILE="excludes.list"
