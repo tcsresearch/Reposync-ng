@@ -1,6 +1,7 @@
 #!/bin/env bash
 
 # shellcheck source=/dev/null
+# shellcheck disable=SC2034
 
 # Define Program Version
 Cfg_EUU_Version="26.10"
@@ -64,7 +65,7 @@ function BackupExcludesFile() {
 function FetchLatestExcludesFile() {
 # Fetch Latest Excludes File
   echo "Fetching Latest Excludes File..."
-  $Cfg_FetchApp $Cfg_FetchApp_Wget_Args -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
+  $Cfg_FetchApp "$Cfg_FetchApp_Wget_Args" -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
   echo "Retrieved Latest Excludes File Successfully."
 }
 
