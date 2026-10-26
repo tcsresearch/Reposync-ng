@@ -3,7 +3,7 @@
 # shellcheck source=/dev/null
 
 # Define Program Version
-Cfg_EUU_VERSION="26.10"
+Cfg_EUU_Version="26.10"
 
 # Define Backup File Date Format
 Cfg_DateFmt="$(date +%Y%m%d)"
