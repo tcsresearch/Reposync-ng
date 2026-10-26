@@ -3,8 +3,9 @@ function SourceExcludes() { # Should we rename this function?  The file isn't an
 	ExcludesFile="./excludes-filtered2.list"
 	# Filter and load into a bash variable
 	# excludes=($(grep -vE '^\s*($|#)' excludes-filtered2.list))
-	excludes=($(grep -vE '^\s*($|#)' $ExcludesFile))
-		
+	## excludes=($(grep -vE '^\s*($|#)' $ExcludesFile))
+	mapfile -t excludes < <(grep -vE '^\s*($|#)' "$ExcludesFile") # Fixes shellcheck SC2207.
+	
 
 	# Example usage:
 	# echo "Files to exclude: ${excludes[@]}"
