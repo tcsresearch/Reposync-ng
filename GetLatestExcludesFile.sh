@@ -14,7 +14,7 @@ Cfg_EXCLUDES_FOLDER="./excludes"
 Cfg_EXCLUDES_FILE="excludes.list"
 Cfg_EXCLUDES_URL="https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list"
 Cfg_BACKUP_PROG="BackupExcludes.sh"
-Cfg_BACKUP_FILE="excludes-backup-$(Cfg_DateFmt)"
+Cfg_BACKUP_FILE="excludes-backup-$Cfg_DateFmt"
 
 # Define Fetching App / Args
 Cfg_FetchApp="wget" # Can be: wget/aria2/curl
