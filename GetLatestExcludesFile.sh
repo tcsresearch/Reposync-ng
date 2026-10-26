@@ -64,6 +64,7 @@ function BackupExcludesFile() {
   ##	mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/excludes-backup_"$DateFmt"
   # sh BackupExcludes.sh
 	sh "$Cfg_BACKUP_PROG"
+	NewLine
 }
 
 function FetchLatestExcludesFile() {
