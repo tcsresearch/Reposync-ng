@@ -84,7 +84,9 @@ function FetchLatestExcludesFile() {
 # Fetch Latest Excludes File
   echo "Fetching Latest Excludes File..."
   ## $Cfg_FetchApp "$Cfg_FetchApp_Wget_Args" -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
-  wget -q --show-progress -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
+  ## wget -q --show-progress -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL" # FIXME: Download doesn't save in correct place; falling back to manual (no vars!)
+  wget -q --show-progress -P excludes https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list
+
   echo "Retrieved Latest Excludes File Successfully."
   NewLine
 }
