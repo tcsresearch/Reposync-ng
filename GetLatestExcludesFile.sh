@@ -64,7 +64,7 @@ function BackupExcludesFile() {
 function FetchLatestExcludesFile() {
 # Fetch Latest Excludes File
   echo "Fetching Latest Excludes File..."
-  $Cfg_Fetch_App $Cfg_FetchApp_Wget_Args -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
+  $Cfg_FetchApp $Cfg_FetchApp_Wget_Args -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
   echo "Retrieved Latest Excludes File Successfully."
 }
 
