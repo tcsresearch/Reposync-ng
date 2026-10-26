@@ -13,6 +13,7 @@ Cfg_DateFmt="$(date +%Y%m%d)"
 Cfg_EXCLUDES_FOLDER="/home/mirrors/___000-dnf5-repos/Fedora/excludes"
 Cfg_EXCLUDES_FILE="excludes.list"
 Cfg_EXCLUDES_URL="https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list"
+Cfg_BACKUP_PROG="BackupExcludes.sh"
 Cfg_BACKUP_FILE="excludes-backup-$(Cfg_DateFmt)"
 
 # Define Fetching App / Args
@@ -61,7 +62,8 @@ function BackupExcludesFile() {
   echo "Backing up existing excludes file..."
   ## mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/"$Cfg_BACKUP_FILE"
   ##	mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/excludes-backup_"$DateFmt"
-  sh BackupExcludesFile.sh
+  # sh BackupExcludes.sh
+	sh "$Cfg_BACKUP_PROG"
 }
 
 function FetchLatestExcludesFile() {
