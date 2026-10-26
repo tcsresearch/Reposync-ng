@@ -10,7 +10,7 @@ Cfg_EUU_Version="26.10.1"
 Cfg_DateFmt="$(date +%Y%m%d)"
 
 # Define Files / Folders
-Cfg_EXCLUDES_FOLDER="/home/mirrors/___000-dnf5-repos/Fedora/excludes"
+Cfg_EXCLUDES_FOLDER="./excludes"
 Cfg_EXCLUDES_FILE="excludes.list"
 Cfg_EXCLUDES_URL="https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list"
 Cfg_BACKUP_PROG="BackupExcludes.sh"
@@ -85,8 +85,8 @@ function FetchLatestExcludesFile() {
   echo "Fetching Latest Excludes File..."
   ## $Cfg_FetchApp "$Cfg_FetchApp_Wget_Args" -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
   ## wget -q --show-progress -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL" # FIXME: Download doesn't save in correct place; falling back to manual (no vars!)
-  wget -q --show-progress -P excludes https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list
-
+  wget -q --show-progress -P excludes https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list -O excludes.list
+  wget -q --show-progress -P excludes "$Cfg_EXCLUDES_URL" -O "$Cfg_EXCLUDES_FILE"
   echo "Retrieved Latest Excludes File Successfully."
   NewLine
 }
