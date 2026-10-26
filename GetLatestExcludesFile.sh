@@ -52,7 +52,7 @@ function OriginalFileInfo() {
 function BackupExcludesFile() {
 # Backup Original Excludes File
   echo "Backing up existing excludes file..."
-  mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/$Cfg_BACKUP_FILE"
+  mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/"$Cfg_BACKUP_FILE"
 }
 
 function FetchLatestExcludesFile() {
@@ -66,7 +66,7 @@ function NewFileInfo() {
 # Display New Excludes File Info
   echo "New Excludes File Info:"
   # echo "Excludes File Last Updated:"
-  cat "$Cfg_EXCLUDES_FOLDER/$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
+  cat "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
   DetermineNumOfExcludes
 }
 
