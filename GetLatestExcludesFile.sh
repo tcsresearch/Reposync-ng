@@ -31,11 +31,26 @@ function DisplayBanner() {
 	NewLine
 }
 
+function NewLine() {
+  echo " "
+}
+
+function DisplayLine() {
+	echo "---------------------------------------------"
+}
+
+function NewLineCinema() {
+	NewLine
+	DisplayLine
+	NewLine
+}
+
 function ShowVars() {
-	# Define Program Version
-for var in ${!Cfg_*}; do
-    echo "$var = ${!var}"
-done
+	echo "$0 - Configuration Values:"
+	DisplayLine
+	for var in ${!Cfg_*}; do
+    	echo "$var = ${!var}"
+	done
 }
 
 
@@ -45,9 +60,7 @@ function DetermineNumOfExcludes() {
    NumOfExcludes=$(grep -cvE '^\s*(#|$)' "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE")
 }
 
-function NewLine() {
-  echo " "
-}
+
 
 function OriginalFileInfo() {
 # Display Original Excludes File Info
