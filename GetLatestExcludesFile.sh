@@ -73,6 +73,7 @@ function FetchLatestExcludesFile() {
   ## $Cfg_FetchApp "$Cfg_FetchApp_Wget_Args" -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
   wget -q --show-progress -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
   echo "Retrieved Latest Excludes File Successfully."
+  NewLine
 }
 
 function NewFileInfo() {
