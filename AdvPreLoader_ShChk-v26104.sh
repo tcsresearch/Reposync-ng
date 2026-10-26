@@ -1,7 +1,17 @@
 #!/usr/bin/env bash
 
 # BLING PreLoader Utility
-PreLoader_Version="26.10"
+PreLoader_Version="26.10.4"
+
+# Fixed in 26.10.4
+#	- Fixed several shellcheck issues.
+#	-	  ./AdvPreLoader.sh:79:1: warning: SanityChecker_WithColor references arguments, but none are ever passed. [SC2120]
+#	-	  ./AdvPreLoader.sh:90:1: warning: SanityChecker_NoColor references arguments, but none are ever passed. [SC2120]
+#	-	  ./AdvPreLoader.sh:103:43: note: Use SanityChecker_WithColor "$@" if function's $1 should mean script's $1. [SC2119]
+#	-	  ./AdvPreLoader.sh:105:44: note: Use SanityChecker_NoColor "$@" if function's $1 should mean script's $1. [SC2119]
+
+
+# Fixed in 26.10
 #	- Fixed output bug on Line 66: ${reset} was missing.
 #	- Moved to Colors2.conf
 #	- Colorized folder not found messasge on Line 73
