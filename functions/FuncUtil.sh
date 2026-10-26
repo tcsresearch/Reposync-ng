@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 # Store results inside a variable.
-NumberOfFoundFunctions=$(eval cat *.bfunc | grep function | grep { | wc -l)
+# NumberOfFoundFunctions=$(eval cat *.bfunc | grep function | grep { | wc -l)
+NumberOfFoundFunctions=$(eval cat $(pwd)/*.bfunc | grep function | grep { | wc -l)
 
 function ShowFunctions() {
 	## TODO: Use cut to remove 'function' and '() {' from displaying
-	cat *.bfunc | grep function | grep {
+	# cat *.bfunc | grep function | grep {
+	cat $(pwd)/*.bfunc | grep function | grep {
 	echo " "
 }
 
