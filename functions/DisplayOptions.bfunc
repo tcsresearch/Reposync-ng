@@ -23,6 +23,8 @@ function CfgDisplay() {
         FORMAT="%-15s %-10s %-5s\n"
 
 
-        printf "$FORMAT" "$Cfg_Description $Cfg_Variable"
+        # printf "$FORMAT" "$Cfg_Description $Cfg_Variable"
+        printf "%s %s\n" "$Cfg_Description" "$Cfg_Variable" # Fixes shellcheck  SC2059.
+
 }
 
