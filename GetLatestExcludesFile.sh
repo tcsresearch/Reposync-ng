@@ -12,7 +12,7 @@ Cfg_DateFmt="$(date +%Y%m%d)"
 Cfg_EXCLUDES_FOLDER="$(pwd)/excludes"
 Cfg_EXCLUDES_FILE="excludes.list"
 Cfg_EXCLUDES_URL="https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list"
-Cfg_BACKUP_FILE="excludes-backup-$(DateFmt)"
+Cfg_BACKUP_FILE="excludes-backup-$(Cfg_DateFmt)"
 
 #################################################################################
 # Define Functions #                                                            #
