@@ -59,7 +59,8 @@ function OriginalFileInfo() {
 function BackupExcludesFile() {
 # Backup Original Excludes File
   echo "Backing up existing excludes file..."
-  mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/"$Cfg_BACKUP_FILE"
+  ## mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/"$Cfg_BACKUP_FILE"
+	mv -v "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" "$Cfg_EXCLUDES_FOLDER"/excludes-backup_$DateFmt
 }
 
 function FetchLatestExcludesFile() {
