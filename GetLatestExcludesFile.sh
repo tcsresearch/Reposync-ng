@@ -10,6 +10,7 @@ Cfg_EUU_Version="26.10.2"
 Cfg_DateFmt="$(date +%Y%m%d)"
 
 # Define Files / Folders
+Cfg_COLORS_FILE="config/Colors2.conf"
 Cfg_EXCLUDES_FOLDER="./excludes"
 Cfg_EXCLUDES_FILE="excludes.list"
 Cfg_EXCLUDES_URL="https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list"
