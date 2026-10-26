@@ -4,7 +4,7 @@
 # shellcheck disable=SC2034
 
 # Define Program Version
-Cfg_EUU_Version="26.10.1"
+Cfg_EUU_Version="26.10.2"
 
 # Define Backup File Date Format
 Cfg_DateFmt="$(date +%Y%m%d)"
