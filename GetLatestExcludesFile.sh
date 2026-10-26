@@ -82,6 +82,7 @@ function OriginalFileInfo() {
   # echo "Excludes File Last Updated:"
   cat "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
   DetermineNumOfExcludes
+  ShowNumOfExcludes
 }
 
 function NewFileInfo() {
@@ -90,6 +91,7 @@ function NewFileInfo() {
   # echo "Excludes File Last Updated:"
   cat "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
   DetermineNumOfExcludes
+  ShowNumOfExcludes
 }
 
 #################################################################################
