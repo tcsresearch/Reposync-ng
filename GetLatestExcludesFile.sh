@@ -23,7 +23,7 @@ Cfg_FetchApp_Aria2_Args=" "
 Cfg_FetchApp_Curl_Args=" "
 
 #################################################################################
-# Define Functions #                                                            #
+# Define Display Functions #                                                    #
 #################################################################################
 
 function DisplayBanner() {
@@ -53,6 +53,9 @@ function ShowVars() {
 	done
 }
 
+#################################################################################
+# Define Excludes Counting Functions #                                          #
+#################################################################################
 
 function DetermineNumOfExcludes() {
 # Read excludes file and determine the number of excluded packages
@@ -60,7 +63,18 @@ function DetermineNumOfExcludes() {
    NumOfExcludes=$(grep -cvE '^\s*(#|$)' "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE")
 }
 
+function CountExcludes(){
+	DetermineNumOfExcludes
+}
 
+function ShowNumOfExcludes() {
+	echo "Number Of Excludes: $NumOfExcludes"
+	NewLine
+}
+
+#################################################################################
+# Define File Info Functions #                                                  #
+#################################################################################
 
 function OriginalFileInfo() {
 # Display Original Excludes File Info
@@ -69,6 +83,18 @@ function OriginalFileInfo() {
   cat "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
   DetermineNumOfExcludes
 }
+
+function NewFileInfo() {
+# Display New Excludes File Info
+  echo "New Excludes File Info:"
+  # echo "Excludes File Last Updated:"
+  cat "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
+  DetermineNumOfExcludes
+}
+
+#################################################################################
+# Define Excludes Backup / Fetching Functions #                                 #
+#################################################################################
 
 function BackupExcludesFile() {
 # Backup Original Excludes File
@@ -91,16 +117,9 @@ function FetchLatestExcludesFile() {
   NewLine
 }
 
-function NewFileInfo() {
-# Display New Excludes File Info
-  echo "New Excludes File Info:"
-  # echo "Excludes File Last Updated:"
-  cat "$Cfg_EXCLUDES_FOLDER"/"$Cfg_EXCLUDES_FILE" | grep '# Last Updated:'
-  DetermineNumOfExcludes
-}
 
 #################################################################################
-# Main Program #                                                              #
+# Main Program #                                                                #
 #################################################################################
 
 DisplayBanner
