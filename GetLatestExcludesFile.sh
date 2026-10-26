@@ -14,6 +14,12 @@ Cfg_EXCLUDES_FILE="excludes.list"
 Cfg_EXCLUDES_URL="https://github.com/tcsresearch/Reposync-ng/raw/refs/heads/main/excludes/excludes.list"
 Cfg_BACKUP_FILE="excludes-backup-$(Cfg_DateFmt)"
 
+# Define Fetching App / Args
+Cfg_FetchApp="wget" # Can be: wget/aria2/curl
+Cfg_FetchApp_Wget_Args="-q --show-progress" 
+Cfg_FetchApp_Aria2_Args=" "
+Cfg_FetchApp_Curl_Args=" "
+
 #################################################################################
 # Define Functions #                                                            #
 #################################################################################
@@ -58,7 +64,7 @@ function BackupExcludesFile() {
 function FetchLatestExcludesFile() {
 # Fetch Latest Excludes File
   echo "Fetching Latest Excludes File..."
-  wget -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
+  $Cfg_Fetch_App $Cfg_FetchApp_Wget_Args -P "$Cfg_EXCLUDES_FOLDER" "$Cfg_EXCLUDES_URL"
   echo "Retrieved Latest Excludes File Successfully."
 }
 
