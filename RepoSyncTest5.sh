@@ -62,7 +62,7 @@ SanityChecker() {
 SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
 
-# SanityChecker RepoSyncTest.bfunc
+SanityChecker RepoSyncTest4.bfunc
 
 DetermineNumOfExcludes
 ProcessExcludesFile
