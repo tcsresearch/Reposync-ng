@@ -2,9 +2,10 @@
 # RepoSyncTest4.sh - This script supercedes RepoSyncTest4_Fedora.sh and RepoSyncTest4_Updates.sh into a single codebase.
 
 # shellcheck disable=SC2034
+# shellcheck source=/dev/null
 
 # Version
-RepoSync_Version="26.10"
+RepoSync_Version="26.11"
 
 # Configuration
 EXCLUDES_FILE="$(pwd)/excludes/excludes.list"
@@ -40,6 +41,8 @@ function LoadColors() {
 	  brightcyan=$(tput setaf 14)
 	  brightwhite=$(tput setaf 15)
  	  reset=$(tput sgr0) # Reset to default 
+	  # Enable Colors Variable
+	  IS_ColorsFile_Loaded="1"
 }
 
 ######################################################################################################################
@@ -261,14 +264,14 @@ DisplayBanner
 # SanityChecker_ColorsFileExists
 SanityChecker_ExcludesFileExists
 
-# RepoSelect2
+  RepoSelect2
 # ReadRepoInputVal
 # SanityChecker_CheckRepoInputVal
 
 # Superceded by RunMain()
- DetermineNumOfExcludes
- ProcessExcludesFile
- CheckRules_Excludes
+ ## DetermineNumOfExcludes
+ ## ProcessExcludesFile
+ ## CheckRules_Excludes
 
 # Called by RepoSelect
-# RunMain
+ RunMain
