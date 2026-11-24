@@ -27,7 +27,7 @@ The ultimate successor to MirrorMan's RepoSync scripts, (incl. RepoSync6.sh, Rep
       <ul>
         <li> :ballot_box_with_check: [DONE] Core functionality is contained within functions. :ballot_box_with_check: </li>
         <li> :ballot_box_with_check: [MOSTLY WORKING] ColorEcho-like output. :ballot_box_with_check: </li>
-        <li> :ballot_box_with_check: [READY FOR TESTING] Support for excludes from external files. </li>
+        <li> :ballot_box_with_check: [DONE] Support for excludes from external files. </li>
         <li> :ballot_box_with_check: [IN PROGRESS] INI-based configuration with an INI library (3rd party, also open source) and viewer (ViewINI.sh). :ballot_box_with_check:  </li> 
         <li> :ballot_box_with_check: [PLANNED] RPM/DEB packaging for various platforms (Fedora/CentOS/Debian/Ubuntu/Raspberry Pi, etc.) :ballot_box_with_check: </li> 
         <li> :ballot_box_with_check: [PLANNED] Support for customizable profiles. </li>
