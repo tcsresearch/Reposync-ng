@@ -2,6 +2,9 @@
 
 # shellcheck disable=SC2034
 
+######################################################################################################################
+# SANITY CHECKERS #																									 #
+######################################################################################################################
 
 function SanityChecker_ColorsFileExists() {
 # Ensure the colors file exists
@@ -23,9 +26,27 @@ function SanityChecker_ExcludesFileExists() {
 	fi
 }
 
+######################################################################################################################
+# EXCLUDES FILE PROCESSING FUNCTIONS #																				 #
+######################################################################################################################
+##	TODO:	Have a master function perform all excludes file processing (ignore blank lines/comments, join with commas, and check for duplicates.)
+
 function DetermineNumOfExcludes() {
 # Read excludes file and determine the number of excluded packages
 	NumOfExcludes=$(grep -cvE '^\s*(#|$)' excludes.list)
+}
+
+
+function CheckForDuplicates() {
+	local duplicates
+	duplicates=$(sed -E 's/^[[:space:]]+|[[:space:]]+$//g' "$EXCLUDES_FILE" | grep -vE '^($|#)' | sort | uniq -d)
+
+	if [[ -n "$duplicates" ]]; then
+    	echo "Duplicate entries found in $EXCLUDES_FILE:"
+    	echo "$duplicates"
+    	# return 1 or exit 1
+		return 1 # TESTING!!!
+	fi
 }
 
 function ProcessExcludesFile () {
