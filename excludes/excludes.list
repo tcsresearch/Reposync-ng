@@ -1,7 +1,7 @@
 # This excludes.list file will allow certain packages specified here to be excluded from syncing.
 # The ability to use this feature has been included in Update.sh.
 
-# Last Updated: Sat Sep 19, 2026
+# Last Updated: Fri Nov 27, 2026
 
 ####################################################################################################################
 # DEBUG PACKAGES #                                                                                                 #
@@ -112,7 +112,7 @@ mingw32-*
 mingw64-*
 
 ####################################################################################################################
-# GAMES #													   #
+# GAMES #												                                                                               	   #
 ####################################################################################################################
 
 0ad-*
@@ -134,44 +134,44 @@ f*-backgrounds-*
 ####################################################################################################################
 
 # R #
-R-*
+  R-*
 
 # Adobe #
-adobe-*
-adobe-source-*
+  adobe-*
+  adobe-source-*
 
 # Aspell #
-aspell-*
+  aspell-*
 
 # Agda #
-Agda-*
+  Agda-*
 
 # Asterisk #
-asterisk-*
+  asterisk-*
 
 # Astrometry #
-astrometry-*
+  astrometry-*
 
 # Avogadro2 #
-avogadro2-*
+  avogadro2-*
 
 # Collada #
-collada-*
+  collada-*
 
 # Emboss #
-EMBOSS-*
+  EMBOSS-*
 
 # Enguage Digitizer #
-engauge-digitizer-*
+  engauge-digitizer-*
 
 # Enlightenment (Desktop Window Manager)
-enlightenment-*
+  enlightenment-*
 
 # Frama-c (Source Code Analzyer for C)
-frama-c-*
+  frama-c-*
 
 # Faust (Audio Programming Language #
-faust-*
+  faust-*
 
 ####################################################################################################################
 # SOURCE CODE #                                                                                                    #
@@ -239,31 +239,42 @@ xen-*
 
 berusky2-data
 julius-japanes-models
-llvm18*
-llvm19*
 
+# llvm #
+  llvm18*
+  llvm19*
+
+
+####################################################################################################################
+# DATA PACKAGES OCT 2026 #                                                                                         #
+####################################################################################################################
 mysql-test-data
 natural-earth-map-data
 openarena
 pioneer-data
 proj-data-us
-python3-torch
-rccl
-
-rocsolver
 stellarium-data
 supertuxcart-data
-swift-lang
-
 torcs-data
 vdrift-data
 vtk-data
 warsow-data
+wesnoth-data
+xonotic-data
+
+python3-torch
+rccl
+
+rocsolver
+
+swift-lang
+
+
 warzone2100-*
 
-wesnoth-data
+
 widelands
-xonotic-data
+
 
 arm-none-eabi-gcc-cs
 cp2k-*
@@ -273,3 +284,13 @@ magma
 megaglest-data
 openblas-static
 rocsparse
+
+####################################################################################################################
+# UNSORTED ADDITIONS - LARGEST PACKAGES NOV 2026 #                                                                 #
+####################################################################################################################
+
+# 1GB + sized packages 
+rocm-*
+rocm-llvm-* # redundant subset
+rocsolver # Currently only resides in fedora repo, not updates.
+
