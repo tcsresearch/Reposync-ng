@@ -1,0 +1,4 @@
+# 1GB + sized packages 
+rocm-*
+rocm-llvm-* # redundant subset
+rocsolver # Currently only resides in fedora repo, not updates.
