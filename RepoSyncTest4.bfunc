@@ -33,12 +33,14 @@ function SanityChecker_ExcludesFileExists() {
 
 function DetermineNumOfExcludes() {
 # Read excludes file and determine the number of excluded packages
-	NumOfExcludes=$(grep -cvE '^\s*(#|$)' excludes.list)
+	# NumOfExcludes=$(grep -cvE '^\s*(#|$)' excludes.list)
+	NumOfExcludes=$(grep -cvE '^\s*(#|$)' "$EXCLUDES_FILE")
 }
 
 
 function CheckForDuplicates() {
 	local duplicates
+	## TODO: Use SimonSed for ignoring blank lines/spaces.
 	duplicates=$(sed -E 's/^[[:space:]]+|[[:space:]]+$//g' "$EXCLUDES_FILE" | grep -vE '^($|#)' | sort | uniq -d)
 
 	if [[ -n "$duplicates" ]]; then
@@ -51,6 +53,7 @@ function CheckForDuplicates() {
 
 function ProcessExcludesFile () {
 # Read the file, ignore blank lines/comments, and join with commas
+## TODO: Use SimonSed for ignoring blank lines/spaces.
 	mapfile -t exclude_array < <(grep -v -E '^\s*(#|$)' "$EXCLUDES_FILE" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 }
 
